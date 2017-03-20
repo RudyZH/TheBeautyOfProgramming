@@ -1,3 +1,4 @@
+// 思路同剑指offer - 030题，最小k个数 
 #include <iostream>
 #include <vector>
 using namespace std;
