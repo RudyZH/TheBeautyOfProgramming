@@ -40,3 +40,16 @@ public class twoNum {
 	}
 	
 }
+
+
+// 方法 2
+//先排序， 在查找 O(nlogn)
+
+for (int i = 0, j = n - 1; i < j) {
+	if (a[i] + a[j] == sum)
+		return (i, j);
+	else if (a[i] + a[j] < sum)
+		i++;
+	else j--;
+}
+return (-1, -1)
