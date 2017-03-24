@@ -1,0 +1,27 @@
+方法 1
+通过比较三角形ABC的面积与三角形ABD，BCD，CAD面积之和来判断点是否在三角形内
+若 S = S1 + S2 + S3, 那么点在三角形ABC的内部或边上，若 S1 + S2 + S3 > S,
+则点 D 在三角形外部
+
+struct point {
+    double x, y;
+};
+
+double Area(point A, point B, point C) {
+    // 边长
+    double a, b, c = 0;
+    // 计算三角形边长
+    Compute(A, B, C, a, b, c);
+    Double p = (a + b + c) / 2;
+    return sqrt((p - a) * (p - b) * (p - c) * p); // 海伦公式
+}
+
+bool isInTriangle(point A, point B, point C, point D) {
+      return (Area(A, B, D) + Area(B, C, D) + Area(C, A, D) <= Area(A, B, C));
+}
+
+
+// 方法 2
+由于三角形是凸的，所以如果有一个点D在三角形ABC内，那么沿着三角形边界逆时针走， 点D
+一定保持在边界的左边， 也就是D在AB，BC，CA的左边
+判断一个点P3是否在一条射线P1P2的左边，可以通过P1P2，P1P3两个向量叉的正负来判断
