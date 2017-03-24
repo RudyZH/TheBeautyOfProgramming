@@ -25,3 +25,15 @@ bool isInTriangle(point A, point B, point C, point D) {
 由于三角形是凸的，所以如果有一个点D在三角形ABC内，那么沿着三角形边界逆时针走， 点D
 一定保持在边界的左边， 也就是D在AB，BC，CA的左边
 判断一个点P3是否在一条射线P1P2的左边，可以通过P1P2，P1P3两个向量叉的正负来判断
+
+struct point {
+    double x, y;
+};
+
+double product(point A, point B, point C) {
+    return (B.x - A.x) * (C.y - A.y) - (C.x - A.x) * (B.y - A.y);
+}
+
+bool isInTrangle(point A, point B, point C, point D) {
+    return product(A, B, D) >= 0 && product(B, C, D) >= 0 && product(C, A, D) >= 0;
+}
