@@ -1,0 +1,7 @@
+s1 = ABCD, 对ABCD进行循还移位：
+ABCD->BCDA->CDAB->DABC->ABCD->...
+
+把前面移走的数据进行保留，会发现：
+ABCD->ABCDA->ABCDAB->ABCDABC->ABCDABCD->...
+
+可以看出对s1做循环移位所得到的字符串都是字符串s1s1的子字符串。如果s2可以由s1循环移位得到，那么s2一定在s1s1上。
